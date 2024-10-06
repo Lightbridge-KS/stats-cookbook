@@ -3,12 +3,13 @@ title: LM Basic (`R`)
 ---
 
 ```{r setup, include=FALSE}
-here::i_am("content/lm-r.qmd")
+here::i_am("content/lm/lm-r.qmd")
 library(here)
 ```
 
 
 ```{r}
+#| message: false
 library(palmerpenguins)
 library(tidyverse)
 theme_set(theme_minimal())

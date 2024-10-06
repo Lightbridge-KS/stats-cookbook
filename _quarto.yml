@@ -12,13 +12,16 @@ book:
     - references.qmd
     - part: "Linear Reg"
       chapters: 
-        - "content/lm-r.qmd"
+        - "content/lm/lm-r.qmd"
+        - "content/lm/lm-islp.ipynb"
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: zephyr
+      dark: superhero
 
 
 freeze: auto
