@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 41c1254b-5d99-4aea-a2ac-2396ecc37d36
+      url: 'https://stats-cookbook-lightbridge.netlify.app'
