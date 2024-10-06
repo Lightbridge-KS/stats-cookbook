@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "Statistics Cookbook"
+  author: "Kittipos Sirivongrungson"
+  date: today
+  repo-url: https://github.com/Lightbridge-KS/stats-cookbook
+  site-url: https://stats-cookbook-lightbridge.netlify.app
+  chapters:
+    - index.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+
+
+freeze: auto
