@@ -1,0 +1,74 @@
+---
+title: LM Basic (`R`) 
+---
+
+```{r setup, include=FALSE}
+here::i_am("content/lm-r.qmd")
+library(here)
+```
+
+
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+theme_set(theme_minimal())
+```
+
+## Explore Data
+
+```{r}
+glimpse(penguins)
+```
+```{r}
+visdat::vis_dat(penguins)
+```
+
+```{r}
+penguins_clean <- penguins |> drop_na()
+```
+
+
+## Visualize Data
+
+```{r}
+penguins_clean |>
+  ggplot(aes(x = bill_length_mm, y = body_mass_g)) +
+  geom_point(color = "maroon", alpha = 0.6) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Linear Regression of Body Mass on Bill Length",
+    x = "Bill Length (mm)",
+    y = "Body Mass (g)"
+  )
+```
+
+## Build Model
+
+Let's create a linear model where `body_mass_g` is the dependent variable and `bill_length_mm` is the independent variable.
+
+### Fit Model
+
+```{r peng_lm_fit1}
+peng_lm_fit1 <- lm(body_mass_g ~ bill_length_mm, data = penguins_clean)
+summary(peng_lm_fit1)
+```
+
+### Predict
+
+```{r}
+penguins_clean$predicted_mass <- predict(peng_lm_fit1, penguins_clean)
+head(penguins_clean)
+```
+
+### Evaluate Performance
+
+
+```{r}
+# Plot residuals to check for patterns
+plot(penguins_clean$bill_length_mm, peng_lm_fit1$residuals, 
+    main = "Residuals Plot", 
+    xlab = "Bill Length (mm)", 
+    ylab = "Residuals")
+abline(h = 0, col = "red")
+```
+

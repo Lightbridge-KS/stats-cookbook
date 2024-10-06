@@ -10,6 +10,9 @@ book:
   chapters:
     - index.qmd
     - references.qmd
+    - part: "Linear Reg"
+      chapters: 
+        - "content/lm-r.qmd"
 
 bibliography: references.bib
 
